@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laugh Factory - Random Joke Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <main class="container">
+        <!-- Background elements -->
+        <div class="background-elements">
+            <div class="emoji emoji-1">😂</div>
+            <div class="emoji emoji-2">🤣</div>
+            <div class="emoji emoji-3">😆</div>
+            <div class="emoji emoji-4">😄</div>
+        </div>
+        
+        <!-- Decorative circles -->
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+        
+        <div class="content">
+            <h1 class="title">Laugh Factory</h1>
+            <p class="subtitle">Discover hilarious jokes that will brighten your day and make you smile!</p>
+            
+            <div class="joke-container">
+                <div class="joke-card">
+                    <!-- Header -->
+                    <div class="joke-header">
+                        <h2>Random Joke Generator</h2>
+                        <div class="header-line"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="joke-content">
+                        <div id="loading" class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                        
+                        <div id="error" class="error hidden">
+                            <p id="error-message">Failed to fetch joke</p>
+                            <button id="try-again" class="try-again-btn">Try Again</button>
+                        </div>
+                        
+                        <div id="joke-display" class="joke-display hidden">
+                            <div id="category-badge" class="category-badge"></div>
+                            
+                            <div class="joke-text">
+                                <p id="joke-setup" class="joke-setup"></p>
+                                <div id="joke-divider" class="joke-divider hidden"></div>
+                                <p id="joke-delivery" class="joke-delivery"></p>
+                            </div>
+                            
+                            <div class="joke-actions">
+                                <button id="like-btn" class="action-btn like-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="thumbs-up">
+                                        <path d="M7 10v12"></path>
+                                        <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+                                    </svg>
+                                    <span id="like-count" class="like-count hidden">0</span>
+                                </button>
+                                
+                                <div class="action-group">
+                                    <button id="speak-btn" class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M11 5 6 9H2v6h4l5 4V5z"></path>
+                                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                                        </svg>
+                                    </button>
+                                    
+                                    <button id="bookmark-btn" class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bookmark">
+                                            <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                                        </svg>
+                                    </button>
+                                    
+                                    <button id="share-btn" class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="18" cy="5" r="3"></circle>
+                                            <circle cx="6" cy="12" r="3"></circle>
+                                            <circle cx="18" cy="19" r="3"></circle>
+                                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div class="joke-footer">
+                        <button id="new-joke-btn" class="new-joke-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="refresh">
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                                <path d="M3 3v5h5"></path>
+                            </svg>
+                            Get New Joke
+                        </button>
+                    </div>
+                    
+                    <!-- Decorative corners -->
+                    <div class="corner corner-tl"></div>
+                    <div class="corner corner-tr"></div>
+                    <div class="corner corner-bl"></div>
+                    <div class="corner corner-br"></div>
+                </div>
+                
+                <div class="joke-info">
+                    <span>Powered by JokeAPI • Safe mode enabled</span>
+                </div>
+            </div>
+            
+            <footer class="main-footer">
+                <p>Created with ❤️ for your entertainment</p>
+            </footer>
+        </div>
+    </main>
+    <script src="script2.js"></script>
+</body>
+</html>
